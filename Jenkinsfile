@@ -22,8 +22,6 @@ node {
 
         switch(env.BRANCH_NAME) {
 
-        echo 'Pulling...' + env.BRANCH_NAME
-
         case "blue-green" :
 
 
