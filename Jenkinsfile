@@ -22,7 +22,7 @@ node {
 
         switch(env.BRANCH_NAME) {
 
-        echo "Branh is - " + env.BRANCH_NAME
+        echo env.BRANCH_NAME
 
         case "blue-green" :
 
