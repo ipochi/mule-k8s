@@ -20,6 +20,8 @@ node {
 
     stage('Deploy Application') {
 
+        echo ${env.BRANCH_NAME}
+
         switch(env.BRANCH_NAME) {
 
         case "blue-green" :
