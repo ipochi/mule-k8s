@@ -22,6 +22,8 @@ node {
 
         switch(env.BRANCH_NAME) {
 
+        echo "Branh is - " + env.BRANCH_NAME
+
         case "blue-green" :
 
 
@@ -29,17 +31,17 @@ node {
 
             sh 'kubectl apply -f app-deployment-test.yaml'
 
-            sh ("sed 's/blue/green/' app-service-test.yaml")
+            sh ("sed 's/blue/green/' app-service.yaml")
 
-            sh 'kubectl apply -f app-service-test.yaml'
+            sh 'kubectl apply -f app-service.yaml'
 
             // Deploy Front-end
 
             sh 'cd front_end;kubectl apply -f app-deployment-test.yaml'
 
-            sh ("cd front_end; sed 's/blue/green/' app-service-test.yaml")
+            sh ("cd front_end; sed 's/blue/green/' app-service.yaml")
 
-            sh 'cd front_end;kubectl apply -f app-service-test.yaml'
+            sh 'cd front_end;kubectl apply -f app-service.yaml'
 
             break;
 
