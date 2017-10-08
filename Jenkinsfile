@@ -20,13 +20,6 @@ node {
 
     stage('Deploy Application') {
 
-        echo 'Pulling...' + env.BRANCH_NAME
-
-        switch(env.BRANCH_NAME) {
-
-        case "blue-green" :
-
-
             // Deploy Back-end
 
             sh 'kubectl apply -f app-deployment-test.yaml'
@@ -43,21 +36,5 @@ node {
 
             sh 'cd front_end;kubectl apply -f app-service.yaml'
 
-            break;
-
-        case "master" :
-
-            // Deploy Back-end
-
-            sh 'kubectl apply -f app-deployment.yaml'
-            sh 'kubectl apply -f app-service.yaml'
-
-            // Deploy Front-end
-            sh 'cd front_end;kubectl apply -f app-deployment.yaml'
-            sh 'cd front_end;kubectl apply -f app-service.yaml'
-
-            break;
-
-        }
     }
 }
