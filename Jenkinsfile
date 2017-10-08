@@ -20,7 +20,7 @@ node {
 
     stage('Deploy Application') {
 
-        echo ${env.BRANCH_NAME}
+        echo 'Pulling...' + env.BRANCH_NAME
 
         switch(env.BRANCH_NAME) {
 
